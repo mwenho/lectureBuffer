@@ -9,8 +9,17 @@ public class Program {
     public static void main(String[] args) {
 
         String path = "C:\\Users\\yavam\\Documents\\lecture\\in.txt";
+<<<<<<< HEAD
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+=======
+        FileReader fr = null;
+        BufferedReader br = null;
+
+        try {
+            fr = new FileReader(path);
+            br = new BufferedReader(fr);
+>>>>>>> origin/main
 
             String line = br.readLine();
 
@@ -22,6 +31,22 @@ public class Program {
         catch (IOException e) {
             System.out.println("Error: " + e.getMessage());
         }
+<<<<<<< HEAD
 
+=======
+        finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (fr != null) {
+                    fr.close();
+                }
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+>>>>>>> origin/main
     }
 }
